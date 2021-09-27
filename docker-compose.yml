@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+    source:
+        container_name: source
+        image: mariadb
+        tty: true
+        restart: always
+        ports:
+            - 3301:3301
+        environment:
+            - MYSQL_ROOT_PASSWORD=KT9DxUKK2VqFpsA2
+            - MYSQL_USER=abc
+            - MYSQL_PASSWORD=123
+            - MYSQL_TCP_PORT=3301
+        volumes:
+            - ./source/conf:/etc/mysql/conf.d
+            - ./source/data:/var/lib/mysql
+    replica:
+        container_name: replica
+        image: mariadb
+        tty: true
+        restart: always
+        ports:
+            - 3302:3302
+        environment:
+            - MYSQL_ROOT_PASSWORD=P9kmYEStg8Y5kCvc
+            - MYSQL_USER=abc
+            - MYSQL_PASSWORD=123
+            - MYSQL_TCP_PORT=3302
+        volumes:
+            - ./replica/conf:/etc/mysql/conf.d
+            - ./replica/data:/var/lib/mysql

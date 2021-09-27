@@ -1,0 +1,8 @@
+[mysqld]
+server-id=1
+log-bin="mysql-bin"
+binlog-ignore-db=test
+binlog-ignore-db=information_schema
+replicate-ignore-db=test
+replicate-ignore-db=information_schema
+relay-log="mysql-relay-log"
